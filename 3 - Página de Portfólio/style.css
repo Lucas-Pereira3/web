@@ -1,0 +1,72 @@
+/* Resetando algumas margens e paddings padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+
+.portfolio {
+    display: grid; /* Usando grid */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Colunas ajustáveis */
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-items: center; /* Alinha os itens ao centro */
+}
+
+.portfolio-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px); /* Efeito de elevação ao passar o mouse */
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.portfolio-item h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #333;
+}
+
+.portfolio-item p {
+    color: #777;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
