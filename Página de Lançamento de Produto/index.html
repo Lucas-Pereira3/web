@@ -42,3 +42,332 @@
 
 </body>
 </html>
+
+
+
+/*Codigo para atualizar o trabalho*/
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lançamento de Produto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .produto {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .produto img {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .contagem {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .contagem div {
+      padding: 20px;
+      background-color: #ff5733;
+      color: white;
+      border-radius: 8px;
+      min-width: 100px;
+      position: relative;
+      animation: fadeInOut 1s infinite;
+    }
+
+    .contagem time {
+      visibility: hidden; /* Esconde o conteúdo real */
+    }
+
+    /* Estilo para cada parte da contagem com ::before animado */
+    .dias::before {
+      content: "";
+      animation: diasCountdown 86400s steps(10, end) infinite;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .horas::before {
+      content: "23 horas";
+      animation: horasCountdown 86400s steps(24, end) infinite;
+      animation-delay: 37s;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .minutos::before {
+      content: "59 minutos";
+      animation: minutosCountdown 3600s steps(60, end) infinite;
+      animation-delay: 30s;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .segundos::before {
+      content: "";
+      animation: segundosCountdown 60s steps(60, end) infinite;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Simulando contagem de 10 dias até 00 */
+    @keyframes diasCountdown {
+      0% { content: "10 dias"; }
+      9.09% { content: "9 dias"; }
+      18.18% { content: "8 dias"; }
+      27.27% { content: "7 dias"; }
+      36.36% { content: "6 dias"; }
+      45.45% { content: "5 dias"; }
+      54.54% { content: "4 dias"; }
+      63.63% { content: "3 dias"; }
+      72.72% { content: "2 dias"; }
+      81.81% { content: "1 dia"; }
+      90.9%, 100% { content: "0 dias"; }
+    }
+
+    @keyframes horasCountdown {
+      0% { content: "23 horas"; }
+      4.16% { content: "22 horas"; }
+      8.33% { content: "21 horas"; }
+      12.5% { content: "20 horas"; }
+      16.66% { content: "19 horas"; }
+      20.83% { content: "18 horas"; }
+      25% { content: "17 horas"; }
+      29.16% { content: "16 horas"; }
+      33.33% { content: "15 horas"; }
+      37.5% { content: "14 horas"; }
+      41.66% { content: "13 horas"; }
+      45.83% { content: "12 horas"; }
+      50% { content: "11 horas"; }
+      54.16% { content: "10 horas"; }
+      58.33% { content: "09 horas"; }
+      62.5% { content: "08 horas"; }
+      66.66% { content: "07 horas"; }
+      70.83% { content: "06 horas"; }
+      75% { content: "05 horas"; }
+      79.16% { content: "04 horas"; }
+      83.33% { content: "03 horas"; }
+      87.5% { content: "02 horas"; }
+      91.66% { content: "01 hora"; }
+      95.83%, 100% { content: "00 horas"; }
+    }
+
+    @keyframes minutosCountdown {
+        0% { content: "59 minutos"; }
+      1.66% { content: "58 minutos"; }
+      3.33% { content: "57 minutos"; }
+      5% { content: "56 minutos"; }
+      6.66% { content: "55 minutos"; }
+      8.33% { content: "54 minutos"; }
+      10% { content: "53 minutos"; }
+      11.66% { content: "52 minutos"; }
+      13.33% { content: "51 minutos"; }
+      15% { content: "50 minutos"; }
+      16.66% { content: "49 minutos"; }
+      18.33% { content: "48 minutos"; }
+      20% { content: "47 minutos"; }
+      21.66% { content: "46 minutos"; }
+      23.33% { content: "45 minutos"; }
+      25% { content: "44 minutos"; }
+      26.66% { content: "43 minutos"; }
+      28.33% { content: "42 minutos"; }
+      30% { content: "41 minutos"; }
+      31.66% { content: "40 minutos"; }
+      33.33% { content: "39 minutos"; }
+      35% { content: "38 minutos"; }
+      36.66% { content: "37 minutos"; }
+      38.33% { content: "36 minutos"; }
+      40% { content: "35 minutos"; }
+      41.66% { content: "34 minutos"; }
+      43.33% { content: "33 minutos"; }
+      45% { content: "32 minutos"; }
+      46.66% { content: "31 minutos"; }
+      48.33% { content: "30 minutos"; }
+      50% { content: "29 minutos"; }
+      51.66% { content: "28 minutos"; }
+      53.33% { content: "27 minutos"; }
+      55% { content: "26 minutos"; }
+      56.66% { content: "25 minutos"; }
+      58.33% { content: "24 minutos"; }
+      60% { content: "23 minutos"; }
+      61.66% { content: "22 minutos"; }
+      63.33% { content: "21 minutos"; }
+      65% { content: "20 minutos"; }
+      66.66% { content: "19 minutos"; }
+      68.33% { content: "18 minutos"; }
+      70% { content: "17 minutos"; }
+      71.66% { content: "16 minutos"; }
+      73.33% { content: "15 minutos"; }
+      75% { content: "14 minutos"; }
+      76.66% { content: "13 minutos"; }
+      78.33% { content: "12 minutos"; }
+      80% { content: "11 minutos"; }
+      81.66% { content: "10 minutos"; }
+      83.33% { content: "09 minutos"; }
+      85% { content: "08 minutos"; }
+      86.66% { content: "07 minutos"; }
+      88.33% { content: "06 minutos"; }
+      90% { content: "05 minutos"; }
+      91.66% { content: "04 minutos"; }
+      93.33% { content: "03 minutos"; }
+      95% { content: "02 minutos"; }
+      96.66% { content: "01 minutos"; }
+      98.33%, 100% { content: "00 minutos"; }
+    }
+
+    @keyframes segundosCountdown {
+        0% { content: "59 segundos"; }
+      1.66% { content: "58 segundos"; }
+      3.33% { content: "57 segundos"; }
+      5% { content: "56 segundos"; }
+      6.66% { content: "55 segundos"; }
+      8.33% { content: "54 segundos"; }
+      10% { content: "53 segundos"; }
+      11.66% { content: "52 segundos"; }
+      13.33% { content: "51 segundos"; }
+      15% { content: "50 segundos"; }
+      16.66% { content: "49 segundos"; }
+      18.33% { content: "48 segundos"; }
+      20% { content: "47 segundos"; }
+      21.66% { content: "46 segundos"; }
+      23.33% { content: "45 segundos"; }
+      25% { content: "44 segundos"; }
+      26.66% { content: "43 segundos"; }
+      28.33% { content: "42 segundos"; }
+      30% { content: "41 segundos"; }
+      31.66% { content: "40 segundos"; }
+      33.33% { content: "39 segundos"; }
+      35% { content: "38 segundos"; }
+      36.66% { content: "37 segundos"; }
+      38.33% { content: "36 segundos"; }
+      40% { content: "35 segundos"; }
+      41.66% { content: "34 segundos"; }
+      43.33% { content: "33 segundos"; }
+      45% { content: "32 segundos"; }
+      46.66% { content: "31 segundos"; }
+      48.33% { content: "30 segundos"; }
+      50% { content: "29 segundos"; }
+      51.66% { content: "28 segundos"; }
+      53.33% { content: "27 segundos"; }
+      55% { content: "26 segundos"; }
+      56.66% { content: "25 segundos"; }
+      58.33% { content: "24 segundos"; }
+      60% { content: "23 segundos"; }
+      61.66% { content: "22 segundos"; }
+      63.33% { content: "21 segundos"; }
+      65% { content: "20 segundos"; }
+      66.66% { content: "19 segundos"; }
+      68.33% { content: "18 segundos"; }
+      70% { content: "17 segundos"; }
+      71.66% { content: "16 segundos"; }
+      73.33% { content: "15 segundos"; }
+      75% { content: "14 segundos"; }
+      76.66% { content: "13 segundos"; }
+      78.33% { content: "12 segundos"; }
+      80% { content: "11 segundos"; }
+      81.66% { content: "10 segundos"; }
+      83.33% { content: "09 segundos"; }
+      85% { content: "08 segundos"; }
+      86.66% { content: "07 segundos"; }
+      88.33% { content: "06 segundos"; }
+      90% { content: "05 segundos"; }
+      91.66% { content: "04 segundos"; }
+      93.33% { content: "03 segundos"; }
+      95% { content: "02 segundos"; }
+      96.66% { content: "01 segundos"; }
+      98.33%, 100% { content: "00 segundos"; }
+    }
+
+    form {
+      margin-top: 30px;
+      background: #ff5733;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    input[type="email"] {
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>O Grande Lançamento Está Chegando!</h1>
+  </header>
+
+  <section class="produto">
+    <img src="img/imagem02.avif" alt="Produto">
+    <h2>Produto Incrível</h2>
+    <p>O produto que vai transformar a sua experiência. Fique ligado!</p>
+
+    <div class="contagem">
+      <div class="dias"><time>10</time></div>
+      <div class="horas"><time>23</time></div>
+      <div class="minutos"><time>59</time></div>
+      <div class="segundos"><time>59</time></div>
+    </div>
+
+    <p>Este é um produto que você não vai querer perder. Cadastre-se para receber uma notificação quando for lançado!</p>
+
+    <form action="#" method="POST">
+      <input type="email" name="email" placeholder="Digite seu email para pré-venda" required>
+      <input type="submit" value="Cadastrar">
+    </form>
+  </section>
+
+</body>
+</html>
